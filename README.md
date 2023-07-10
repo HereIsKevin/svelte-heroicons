@@ -1,0 +1,3 @@
+# Heroicons for Svelte
+
+WIP
