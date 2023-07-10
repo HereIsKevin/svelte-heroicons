@@ -25,7 +25,7 @@ for (const [directory, style] of Object.entries(styles)) {
   for (const icon of readdirSync(input)) {
     const path = join(input, icon)
     const content = readFileSync(path, "utf-8")
-    const component = content.replace(">", " {...$$props}>")
+    const component = content.replace(">", " {...$$$$props}>")
 
     const name = basename(path, ".svg")
     const pascalcased = camelcase(name, { pascalCase: true })
