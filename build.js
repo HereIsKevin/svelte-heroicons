@@ -15,6 +15,10 @@ const styles = {
   "20/solid": "mini",
 }
 
+const script = `<script lang="ts"></script>
+
+`
+
 for (const [directory, style] of Object.entries(styles)) {
   const input = resolve("./node_modules/heroicons/", directory)
   const output = resolve("./", style)
@@ -25,7 +29,9 @@ for (const [directory, style] of Object.entries(styles)) {
   for (const icon of readdirSync(input)) {
     const path = join(input, icon)
     const content = readFileSync(path, "utf-8")
-    const component = content.replace(">", " {...$$$$props}>")
+
+    const template = content.replace(">", " {...$$$$props}>")
+    const component = script + template
 
     const name = basename(path, ".svg")
     const pascalcased = camelcase(name, { pascalCase: true })
